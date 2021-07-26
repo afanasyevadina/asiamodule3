@@ -4,7 +4,7 @@ $query = new WP_Query([
 	'order' => 'ASC',
 ]);
 ?>
-<section class="solutions bg-grey">
+<section class="solutions bg-grey" id="solutions">
 	<h2 class="section-title">Solutions</h2>
 	<p class="section-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 	<?php while($query->have_posts()) {

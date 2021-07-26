@@ -3,7 +3,7 @@ $query = new WP_Query([
 	'post_type' => 'post',
 ]);
 ?>
-<section class="news bg-blue text-white">
+<section class="news bg-blue text-white" id="news">
 	<div class="container">
 		<h2 class="section-title">News</h2>
 		<div class="row row-3">

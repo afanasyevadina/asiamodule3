@@ -4,9 +4,12 @@ Author: KZ
 Version: 1.0
 Template: twentytwenty
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap');
+
 * {
 	margin: 0;
-	font-family: Arial, sans-serif;
+	font-family: Lato, Arial, sans-serif;
 	line-height: 150%;
 }
 .screen-reader-text {
@@ -110,15 +113,19 @@ section {
 	text-transform: uppercase;
 	margin-bottom: 25px;
 }
+.solutions {
+	padding-bottom: 0;
+}
 .solutions .row {
 	grid-gap: 0;
 }
 .solutions .col-text {
 	padding: 30px;
 	transition: .3s;
+	position: relative;
 }
 .solutions .col-text:hover {
-	background-color: #EEEEEE;
+	background-color: #DDDDDD;
 }
 .bg-fixed {
 	background-size: cover;
@@ -130,6 +137,7 @@ section {
 }
 header {
 	padding: 20px 0;
+	position: relative;
 }
 .logo {
 	font-size: 2em;
@@ -168,7 +176,7 @@ header nav ul {
 	display: flex;
 	align-items: center;
 }
-#search-toggler, #search-toggler:not(:checked) ~ form {
+#search-toggler, #search-toggler:not(:checked) ~ nav form {
 	display: none;
 }
 .search form {
@@ -204,15 +212,15 @@ header nav ul {
 	transform: rotate(-45deg);
 	background-color: #FFFFFF;
 }
-#search-toggler:checked ~ .search-icon {
+#search-toggler:checked ~ nav .search-icon {
 	border-color: transparent;
 }
-#search-toggler:checked ~ .search-icon:after {
+#search-toggler:checked ~ nav .search-icon:after {
 	height: 18px;
 	bottom: 0;
 	right: 0;
 }
-#search-toggler:checked ~ .search-icon:before {
+#search-toggler:checked ~ nav .search-icon:before {
 	content: '';
 	display: block;
 	position: absolute;
@@ -223,10 +231,6 @@ header nav ul {
 	transform-origin: bottom left;
 	transform: rotate(45deg);
 	background-color: #FFFFFF;
-}
-.solutions .row:nth-child(even) .bg-block {
-	grid-column: 2;
-	grid-row: 1;
 }
 .head {
 	text-align: center;
@@ -276,8 +280,9 @@ header nav ul {
 	text-transform: uppercase;
 	text-decoration: none;
 	text-align: center;
-	padding: 10px 15px;
+	padding: 12px 20px;
 	transition: .3s;
+	font-weight: bold;
 }
 .btn-white {
 	border: 2px solid #FFFFFF;
@@ -302,6 +307,10 @@ header nav ul {
 }
 .news .col {
 	border: 2px solid #FFFFFF;
+	transition: .3s;
+}
+.news .col:hover {
+	background-color: #2e2e5d;
 }
 .courses .col {
 	border-left: 3px solid darkslateblue;
@@ -346,4 +355,177 @@ header nav ul {
 	height: 20%;
 	border-bottom: 2px solid #FFFFFF;
 	border-right: 2px solid #FFFFFF;
+}
+.solutions .col-text:before {
+	position: absolute;
+	content: '';
+	display: block;
+	top: 20px;
+	left: 20px;
+	width: 15%;
+	height: 20%;
+	border-top: 2px solid #CCCCCC;
+	border-left: 2px solid #CCCCCC;
+}
+.solutions .col-text:after {
+	position: absolute;
+	content: '';
+	display: block;
+	bottom: 20px;
+	right: 20px;
+	width: 15%;
+	height: 20%;
+	border-bottom: 2px solid #CCCCCC;
+	border-right: 2px solid #CCCCCC;
+}
+.wpcf7-submit {
+	outline: none;
+	border: none;
+	background-color: darkorange !important;
+	color: #FFFFFF;
+	cursor: pointer;
+	text-transform: uppercase;
+	text-decoration: none;
+	text-align: center;
+	padding: 12px 20px;
+	transition: .3s;
+	font-weight: bold;
+	display: block;
+	width: 100%;
+}
+input[type=text].wpcf7-form-control, input[type=email].wpcf7-form-control, textarea.wpcf7-form-control {
+	border: none;
+	background-color: transparent;
+	border-bottom: 1px solid #FFFFFF;
+	outline: none;
+	display: block;
+	width: 100%;
+	padding: 5px;
+	box-sizing: border-box;
+	color: #FFFFFF;
+	font-size: 1em;
+}
+input[type=text].wpcf7-form-control:focus, input[type=email].wpcf7-form-control:focus, textarea.wpcf7-form-control:focus {
+	border-bottom-color: darkorange;
+}
+
+textarea.wpcf7-form-control {
+	height: 50px;
+}
+
+form p:not(:last-child) {
+	margin-bottom: 20px;
+}
+
+footer for {
+	width: 400px;
+	max-width: 100%;
+}
+footer a {
+	margin-right: 20px;
+	transition: .2s;
+}
+footer a:hover {
+	color: darkorange;
+}
+#modal-toggler, #modal-toggler:not(:checked) ~ .modal {
+	display: none;
+}
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	min-height: 100vh;
+	z-index: 999;
+	background: rgba(0, 0, 0, .75);
+}
+.modal-form {
+	padding: 30px;
+	width: 450px;
+	max-width: 100%;
+}
+.close {
+	font-size: 2em;
+	margin: -20px -10px auto auto;
+	cursor: pointer;
+}
+.menu-icon {
+	display: none;
+}
+#menu-toggler {
+	display: none;
+}
+.site-subtitle {
+	font-size: 1.15em;
+	margin-bottom: 30px;
+}
+.news-date {
+	text-align: right;
+	display: block;
+	margin-top: 15px;
+}
+
+@media(max-width: 768px) {
+	#menu-main {
+		position: absolute;
+		z-index: 998;
+		top: 100%;
+		left: 0;
+		width: 100vw;
+		display: block;
+		background-color: #111111;
+		padding: 0 7.5vw 20px 7.5vw;
+		transition: .3s;
+	}
+	header nav li {
+		display: block;
+		padding: 10px 0;
+	}
+	#menu-toggler:not(:checked) ~ nav #menu-main {
+		transform: translateX(-100%);
+	}
+	.menu-icon {
+		display: grid;
+		grid-template-rows: repeat(3, 3px);
+		width: 20px;
+		grid-gap: 5px;
+		cursor: pointer;
+	}
+	#search-toggler:checked ~ .logo {
+		display: none;
+	}
+	.row-3 {
+		grid-template-columns: 1fr;
+	}
+	footer .container {
+		display: block;
+	}
+	footer nav {
+		margin-bottom: 40px;
+	}
+}
+
+@media(max-width: 686px) {
+	.courses .col {
+		grid-template-columns: 1fr;
+	}
+	.site-title {
+		font-size: 2.5em;
+	}
+}
+
+@media(max-width: 626px) {
+	.row-2 {
+		grid-template-columns: 1fr;
+	}
+	.site-subtitle, .section-subtitle {
+		font-size: 1em;
+	}
+}
+@media(min-width: 627px) {	
+	.solutions .row:nth-child(even) .bg-block {
+		grid-column: 2;
+		grid-row: 1;
+	}
 }

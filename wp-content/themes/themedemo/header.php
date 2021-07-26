@@ -20,13 +20,19 @@
 		<header class="bg-dark text-white">
 
 			<div class="container d-flex j-between a-center">
+				<label for="menu-toggler" class="menu-icon">
+					<span class="bg-white"></span>
+					<span class="bg-white"></span>
+					<span class="bg-white"></span>
+				</label>
+				<input type="checkbox" id="search-toggler" <?=get_search_query() ? 'checked' : ''?>>
 				<a href="/" class="logo">
 					<b class="text-yellow">LO</b><b class="text-blue">GO</b>
 				</a>
+				<input type="checkbox" id="menu-toggler">
 				<nav class="d-flex a-center">
 					<?php wp_nav_menu(); ?>
 					<div class="search d-flex a-center">
-						<input type="checkbox" id="search-toggler" <?=get_search_query() ? 'checked' : ''?>>
 						<form action="/" method="GET">
 							<input type="search" name="s" value="<?=get_search_query()?>" placeholder="Search">
 						</form>
@@ -55,7 +61,7 @@
 			<div class="head text-white d-flex a-center j-center">
 				<div class="container">
 					<h1 class="site-title"><?= get_bloginfo('name') ?></h1>
-					<p class="section-subtitle">Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Vel, quisquam placeat consectetur tenetur! Corrupti quaerat dolorem repellendus, atque perferendis cupiditate quae quia veniam incidunt optio. Sunt magni adipisci nisi amet?</p>
+					<p class="site-subtitle">Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Vel, quisquam placeat consectetur tenetur! Corrupti quaerat dolorem repellendus, atque perferendis cupiditate quae quia veniam incidunt optio. Sunt magni adipisci nisi amet?</p>
 					<div class="d-flex j-center header-btn">
 						<a class="btn btn-white text-white" href="#solutions">Learn more</a>
 					</div>

@@ -4,7 +4,7 @@ $query = new WP_Query([
 	'order' => 'DESC',
 ]);
 ?>
-<section class="courses bg-grey">
+<section class="courses bg-grey" id="courses">
 	<div class="container">
 		<h2 class="section-title">Courses</h2>
 		<div class="row">
