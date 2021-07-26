@@ -47,22 +47,27 @@
 				$i = 0;
 				while($query->have_posts()) {
 					$query->the_post(); ?>
-					<div class="slide <?=$i ? '' : 'active'?>" style="background-image: url('<?=get_the_post_thumbnail_url()?>');"></div>
-					<?php $i++;
-				} ?>
-			</div>
-			<div class="slider-dots">
-				<?php 
-				$i = 0;
-				while($query->have_posts()) {
-					$query->the_post(); ?>
-					<div class="slider-dot <?=$i ? '' : 'active'?>"></div>
+					<div class="slide bg-fixed <?=$i ? '' : 'active'?>" style="background-image: url('<?=get_the_post_thumbnail_url()?>');"></div>
 					<?php $i++;
 				} ?>
 			</div>
 			<?php wp_reset_postdata(); ?>
-			<div class="container">
-				<h1 class="site-title"><?= get_bloginfo('name') ?></h1>
-				<p class="site-description">Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Vel, quisquam placeat consectetur tenetur! Corrupti quaerat dolorem repellendus, atque perferendis cupiditate quae quia veniam incidunt optio. Sunt magni adipisci nisi amet?</p>
+			<div class="head text-white d-flex a-center j-center">
+				<div class="container">
+					<h1 class="site-title"><?= get_bloginfo('name') ?></h1>
+					<p class="section-subtitle">Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Vel, quisquam placeat consectetur tenetur! Corrupti quaerat dolorem repellendus, atque perferendis cupiditate quae quia veniam incidunt optio. Sunt magni adipisci nisi amet?</p>
+					<div class="d-flex j-center header-btn">
+						<a class="btn btn-white text-white" href="#solutions">Learn more</a>
+					</div>
+					<div class="slider-dots d-flex j-center">
+						<?php 
+						$i = 0;
+						while($query->have_posts()) {
+							$query->the_post(); ?>
+							<a href="#" data-slide="<?=$i?>" class="slider-dot bg-white <?=$i ? '' : 'active'?>"></a>
+							<?php $i++;
+						} ?>
+					</div>
+				</div>
 			</div>
 		</div>

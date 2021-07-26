@@ -20,6 +20,9 @@ Template: twentytwenty
 section {
 	padding: 50px 0;
 }
+.bg-white {
+	background-color: #FFFFFF;
+}
 .bg-dark {
 	background-color: #111111;
 }
@@ -27,7 +30,7 @@ section {
 	background-color: darkslateblue;
 }
 .bg-grey {
-	background-color: #CCCCCC;
+	background-color: #DDDDDD;
 }
 .bg-yellow {
 	background-color: darkorange;
@@ -39,7 +42,7 @@ section {
 	color: darkslateblue;
 }
 .text-grey {
-	color: #CCCCCC;
+	color: #DDDDDD;
 }
 .text-yellow {
 	color: darkorange;
@@ -98,7 +101,6 @@ section {
 }
 .section-subtitle {
 	font-size: 1.25em;
-	text-transform: uppercase;
 	text-align: center;
 	margin: 0 auto 40px auto;
 	max-width: 800px;
@@ -116,7 +118,7 @@ section {
 	transition: .3s;
 }
 .solutions .col-text:hover {
-	background-color: #CCCCCC;
+	background-color: #EEEEEE;
 }
 .bg-fixed {
 	background-size: cover;
@@ -139,6 +141,27 @@ header a {
 header nav a {
 	color: #FFFFFF;
 	margin-right: 20px;
+	position: relative;
+	transition: .3s;
+}
+header nav a:hover {
+	color: darkorange;
+}
+header nav a:after {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -5px;
+	background-color: darkorange;
+	transform-origin: left;
+	height: 1px;
+	transition: .3s;
+	transform: scaleX(0);
+}
+header nav a:hover:after {
+	transform: scaleX(1);
 }
 header nav ul {
 	list-style: none;
@@ -204,4 +227,123 @@ header nav ul {
 .solutions .row:nth-child(even) .bg-block {
 	grid-column: 2;
 	grid-row: 1;
+}
+.head {
+	text-align: center;
+	background: rgba(0, 0, 0, .75);
+	min-height: 50vh;
+}
+.site-title {
+	font-size: 4em;
+	margin-bottom: 40px;
+	text-transform: uppercase;
+}
+.banner {
+	position: relative;
+}
+.slider, .slider .slide {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.slider {
+	z-index: -1;
+}
+.slide {
+	transition: .3s;
+}
+.slide:not(.active) {
+	opacity: 0;
+}
+.slider-dot:not(.active) {
+	opacity: .5;
+}
+.header-btn {
+	margin-bottom: 40px;
+}
+.slider-dot {
+	margin: 0 5px;
+	height: 5px;
+	width: 15px;
+}
+.btn {
+	outline: none;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	text-transform: uppercase;
+	text-decoration: none;
+	text-align: center;
+	padding: 10px 15px;
+	transition: .3s;
+}
+.btn-white {
+	border: 2px solid #FFFFFF;
+}
+.btn-white:hover {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+.btn-dark {
+	border: 2px solid #111111;
+}
+.btn-dark:hover {
+	background-color: #111111;
+	color: #FFFFFF;
+}
+.btn-blue {
+	border: 2px solid darkslateblue;
+}
+.btn-blue:hover {
+	background-color: darkslateblue;
+	color: #FFFFFF;
+}
+.news .col {
+	border: 2px solid #FFFFFF;
+}
+.courses .col {
+	border-left: 3px solid darkslateblue;
+	display: grid;
+	grid-template-columns: 1fr auto;
+	grid-gap: 30px;
+}
+.courses-date {
+	text-align: center;
+	font-weight: bold;
+}
+.date-divider {
+	font-size: 2em;
+	margin: 0 10px;
+}
+.date-large {
+	font-size: 4.5em;
+	line-height: 100%;
+}
+.banner .container {
+	position: relative;
+	padding: 30px 0;
+}
+.banner .container:before {
+	position: absolute;
+	content: '';
+	display: block;
+	top: 0;
+	left: 0;
+	width: 15%;
+	height: 20%;
+	border-top: 2px solid #FFFFFF;
+	border-left: 2px solid #FFFFFF;
+}
+.banner .container:after {
+	position: absolute;
+	content: '';
+	display: block;
+	bottom: 0;
+	right: 0;
+	width: 15%;
+	height: 20%;
+	border-bottom: 2px solid #FFFFFF;
+	border-right: 2px solid #FFFFFF;
 }
