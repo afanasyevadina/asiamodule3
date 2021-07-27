@@ -465,6 +465,14 @@ footer a:hover {
 	display: block;
 	margin-top: 15px;
 }
+.bg-div {
+	height: 30vh;
+	background-image: url('images/bg-1.jpg');
+}
+.bg-div-2 {
+	height: 30vh;
+	background-image: url('images/bg-2.jpg');
+}
 
 @media(max-width: 768px) {
 	#menu-main {

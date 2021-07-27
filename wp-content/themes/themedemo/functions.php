@@ -25,6 +25,10 @@ function register_custom_types_kz()
 add_action('wp_enqueue_scripts', 'enqueue_scripts_kz');
 function enqueue_scripts_kz()
 {
+	wp_dequeue_script('comment-reply');
+	wp_dequeue_script('twentytwenty-js');
+	wp_dequeue_style('twentytwenty-style');
+	wp_dequeue_style('twentytwenty-print-style');
 	wp_enqueue_script('kz-script', get_stylesheet_directory_uri() . '/js/script.js', [], '1.0', true);
 }
 

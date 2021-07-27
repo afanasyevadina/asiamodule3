@@ -14,3 +14,4 @@
 		</div>
 	</div>
 </section>
+<div class="bg-fixed bg-div"></div>
