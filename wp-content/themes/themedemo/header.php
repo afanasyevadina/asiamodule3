@@ -17,7 +17,8 @@
 		wp_body_open();
 		?>
 
-		<header class="bg-dark text-white d-flex a-center">
+		<div class="header-before"></div>
+		<header class="bg-dark text-white d-flex a-center <?= is_admin_bar_showing() ? 'after-admin' : '' ?>">
 
 			<div class="container d-flex j-between a-center">
 				<label for="menu-toggler" class="menu-icon">

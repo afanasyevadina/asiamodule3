@@ -1,4 +1,5 @@
-<section class="call bg-grey" id="call">
+<section class="call bg-grey">
+	<div id="call" class="section-anchor"></div>
 	<h2 class="section-title">Request our demo</h2>
 	<p class="section-subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 	<div class="d-flex j-center">

@@ -9,6 +9,7 @@ add_action('wp_enqueue_scripts', 'enqueue_scripts_slider_kz');
 function enqueue_scripts_slider_kz()
 {
 	wp_enqueue_script('slider-kz-script', plugin_dir_url(__FILE__) . '/js/script.js', [], '1.0', true);
+	wp_enqueue_style('slider-kz-style', plugin_dir_url(__FILE__) . '/css/style.css');
 }
 
 add_action('init', 'register_custom_types_slider_kz');
@@ -41,7 +42,7 @@ function slider_kz($attr, $content)
 					<?php $i++;
 				} ?>
 			</div>
-			<div class="head text-white d-flex a-center j-center">
+			<div class="slider-content text-white d-flex a-center j-center">
 				<div class="container">
 					<h1 class="site-title"><?= get_bloginfo('name') ?></h1>
 					<p class="site-subtitle">Lorem, ipsum, dolor sit amet consectetur adipisicing elit. Vel, quisquam placeat consectetur tenetur! Corrupti quaerat dolorem repellendus, atque perferendis cupiditate quae quia veniam incidunt optio. Sunt magni adipisci nisi amet?</p>
