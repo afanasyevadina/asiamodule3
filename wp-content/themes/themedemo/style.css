@@ -149,9 +149,6 @@ header {
 	right: 0;
 	z-index: 997;
 }
-header.after-admin {
-	top: 32px;
-}
 .header-before {
 	height: 80px;
 }
@@ -192,8 +189,19 @@ header nav ul {
 	display: flex;
 	align-items: center;
 }
-#search-toggler, #search-toggler:not(:checked) ~ nav form {
+#search-toggler {
 	display: none;
+}
+nav form {
+	transition: .3s;
+}
+#search-toggler:not(:checked) ~ nav form {
+	transform: translateY(-100px);
+	position: absolute;
+	right: 100%;
+}
+.search {
+	position: relative;
 }
 .search form {
 	margin-right: 15px;
@@ -437,6 +445,12 @@ footer a:hover {
 	height: 30vh;
 	background-image: url('images/bg-2.jpg');
 }
+#wpadminbar {
+	position: absolute !important;
+}
+html.my {
+	margin-top: 0 !important;
+}
 
 @media(max-width: 768px) {
 	#menu-main {
@@ -479,12 +493,6 @@ footer a:hover {
 	}
 }
 
-@media(max-width: 782px) {
-	header.after-admin {
-		top: 46px;
-	}
-}
-
 @media(max-width: 686px) {
 	.courses .col {
 		grid-template-columns: 1fr;
@@ -500,6 +508,9 @@ footer a:hover {
 	}
 	.site-subtitle, .section-subtitle {
 		font-size: 1em;
+	}
+	.container {
+		width: calc(100vw - 40px);
 	}
 }
 @media(min-width: 627px) {	

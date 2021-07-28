@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class="no-js" <?php language_attributes(); ?>>
+<html class="no-js my" <?php language_attributes(); ?>>
 
 	<head>
 
@@ -18,7 +18,7 @@
 		?>
 
 		<div class="header-before"></div>
-		<header class="bg-dark text-white d-flex a-center <?= is_admin_bar_showing() ? 'after-admin' : '' ?>">
+		<header class="bg-dark text-white d-flex a-center">
 
 			<div class="container d-flex j-between a-center">
 				<label for="menu-toggler" class="menu-icon">
