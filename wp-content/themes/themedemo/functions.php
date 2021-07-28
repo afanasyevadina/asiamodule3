@@ -14,12 +14,6 @@ function register_custom_types_kz()
 		'public' => true,
 		'supports' => ['editor', 'title'],
 	]);
-
-	register_post_type('slide', [
-		'label' => 'Slider',
-		'public' => true,
-		'supports' => ['title', 'thumbnail'],
-	]);
 }
 
 add_action('wp_enqueue_scripts', 'enqueue_scripts_kz');
