@@ -1,5 +1,6 @@
 <?php 
 add_theme_support('post-thumbnails');
+add_theme_support('tadam');
 add_action('init', 'register_custom_types_kz');
 function register_custom_types_kz()
 {
@@ -66,4 +67,83 @@ function save_post_kz($postId)
 	}
 	return $postId;
 }
+
+add_action('customize_register', function($wp_customize) {
+
+	$wp_customize->add_section('blocks-edit',array(
+	    'title'=>'Enable/disable blocks',
+	    'priority'=>10,
+	));
+
+
+	$wp_customize->add_setting('show_call',array(
+	    'default'=> true,
+	    'type' => 'option',
+	    'transport' => 'refresh',
+	));
+
+
+	$wp_customize->add_control('show_call',array(
+	    'label'=>'Show call section',
+	    'type'=>'checkbox',
+	    'section'=>'blocks-edit',
+	));
+
+
+	$wp_customize->add_setting('show_news',array(
+	    'default'=> true,
+	    'type' => 'option',
+	    'transport' => 'refresh',
+	));
+
+
+	$wp_customize->add_control('show_news',array(
+	    'label'=>'Show news section',
+	    'type'=>'checkbox',
+	    'section'=>'blocks-edit',
+	));
+
+
+	$wp_customize->add_setting('show_courses',array(
+	    'default'=> true,
+	    'type' => 'option',
+	    'transport' => 'refresh',
+	));
+
+
+	$wp_customize->add_control('show_courses',array(
+	    'label'=>'Show courses section',
+	    'type'=>'checkbox',
+	    'section'=>'blocks-edit',
+	));
+
+
+	$wp_customize->add_setting('show_solutions',array(
+	    'default'=> true,
+	    'type' => 'option',
+	    'transport' => 'refresh',
+	));
+
+
+	$wp_customize->add_control('show_solutions',array(
+	    'label'=>'Show solutions section',
+	    'type'=>'checkbox',
+	    'section'=>'blocks-edit',
+	));
+
+
+	$wp_customize->add_setting('show_demo',array(
+	    'default'=> true,
+	    'type' => 'option',
+	    'transport' => 'refresh',
+	));
+
+
+	$wp_customize->add_control('show_demo',array(
+	    'label'=>'Show demo section',
+	    'type'=>'checkbox',
+	    'section'=>'blocks-edit',
+	));
+});
+
 ?>
