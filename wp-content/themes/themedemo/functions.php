@@ -1,6 +1,5 @@
 <?php 
 add_theme_support('post-thumbnails');
-add_theme_support('tadam');
 add_action('init', 'register_custom_types_kz');
 function register_custom_types_kz()
 {
@@ -23,6 +22,7 @@ function enqueue_scripts_kz()
 	wp_dequeue_script('comment-reply');
 	wp_dequeue_script('twentytwenty-js');
 	wp_dequeue_style('twentytwenty-style');
+	wp_deregister_style('twentytwenty-style');
 	wp_dequeue_style('twentytwenty-print-style');
 	wp_enqueue_script('kz-script', get_stylesheet_directory_uri() . '/js/script.js', [], '1.0', true);
 }
@@ -72,7 +72,7 @@ add_action('customize_register', function($wp_customize) {
 
 	$wp_customize->add_section('blocks-edit',array(
 	    'title'=>'Enable/disable blocks',
-	    'priority'=>10,
+	    'priority' => 11,
 	));
 
 
@@ -146,4 +146,20 @@ add_action('customize_register', function($wp_customize) {
 	));
 });
 
+add_filter( 'wpcf7_validate', 'my_form_validate', 10, 2 );
+
+function my_form_validate( $result, $tags ) {
+	$form = WPCF7_Submission::get_instance();
+
+	$callback = $form->get_posted_data( 'callback' );
+	$phone = $form->get_posted_data( 'your-phone' );
+
+	$error_msg = 'The field is required';
+
+	if ( empty( $phone ) && $callback ) {
+		$result->invalidate( 'your-phone', $error_msg );
+	}
+
+	return $result;
+}
 ?>

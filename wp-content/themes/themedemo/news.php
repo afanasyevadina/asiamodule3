@@ -1,7 +1,12 @@
 <section class="news bg-blue text-white">
 	<div id="news" class="section-anchor"></div>
 	<div class="container">
-		<h2 class="section-title">News</h2>
+		<div class="news-head">
+			<h2 class="section-title">News</h2>
+			<div class="d-flex j-center show-all">
+				<a href="/blog" class="btn btn-white text-white">Show all</a>
+			</div>
+		</div>
 		<div class="row row-3">
 			<?php while(have_posts()) {
 				the_post(); ?>

@@ -1,0 +1,56 @@
+@keyframes show {
+	50% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(1.0);
+	}
+}
+@keyframes frombottom {
+	0% {
+		transform: translateY(50px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+.test-game .btn {
+	height: 50px;
+	width: 200px;
+}
+.test-game {
+	text-align: center;
+}
+.test-game .btn.bg-blue:hover {
+	background-color: darkorange !important;
+}
+.game-title {
+	font-size: 3em;
+	margin-bottom: 30px;
+	text-align: center;
+}
+.game-subtitle {
+	font-size: 1.5em;
+	margin-bottom: 40px;
+	text-align: center;
+}
+.answers button:first-child {
+	margin-right: 20px;
+}
+.step-1 #game-screen, .step-1 #end-screen {
+	display: none;
+}
+.step-2 #start-screen, .step-2 #end-screen {
+	display: none;
+}
+.step-3 #game-screen, .step-3 #start-screen {
+	display: none;
+}
+.step-3 .game-subtitle, .step-2 {
+	animation: show 1s ease-in-out;
+}
+.step-3 i {
+	animation: frombottom 1s ease-in-out .5s backwards;
+}

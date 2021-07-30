@@ -35,13 +35,13 @@ section {
 	background-color: #111111;
 }
 .bg-blue {
-	background-color: darkslateblue;
+	background-color: darkslateblue !important;
 }
 .bg-grey {
 	background-color: #DDDDDD;
 }
 .bg-yellow {
-	background-color: darkorange;
+	background-color: darkorange !important;
 }
 .text-dark {
 	color: #111111;
@@ -152,6 +152,9 @@ header {
 .header-before {
 	height: 80px;
 }
+#wpadminbar {
+	position: absolute !important;
+}
 .logo {
 	font-size: 2em;
 }
@@ -161,9 +164,11 @@ header a {
 }
 header nav a {
 	color: #FFFFFF;
-	margin-right: 20px;
 	position: relative;
 	transition: .3s;
+}
+header nav li:not(:last-child) a {
+	margin-right: 20px;
 }
 header nav a:hover {
 	color: darkorange;
@@ -188,73 +193,6 @@ header nav ul {
 	list-style: none;
 	display: flex;
 	align-items: center;
-}
-#search-toggler {
-	display: none;
-}
-nav form {
-	transition: .3s;
-}
-#search-toggler:not(:checked) ~ nav form {
-	transform: translateY(-100px);
-	position: absolute;
-	right: 100%;
-}
-.search {
-	position: relative;
-}
-.search form {
-	margin-right: 15px;
-}
-.search form input {
-	border: none;
-	background-color: transparent;
-	outline: none;
-	padding: 5px;
-	color: #FFFFFF;
-	font-family: Arial, sans-serif;
-	border-bottom: 1px solid #FFFFFF;
-}
-.search-icon {
-	display: block;
-	min-width: 14px;
-	height: 14px;
-	position: relative;
-	border: 2px solid #FFFFFF;
-	border-radius: 50%;
-	cursor: pointer;
-}
-.search-icon:after {
-	content: '';
-	display: block;
-	position: absolute;
-	bottom: -2px;
-	right: -2px;
-	height: 6px;
-	width: 2px;
-	transform-origin: bottom right;
-	transform: rotate(-45deg);
-	background-color: #FFFFFF;
-}
-#search-toggler:checked ~ nav .search-icon {
-	border-color: transparent;
-}
-#search-toggler:checked ~ nav .search-icon:after {
-	height: 18px;
-	bottom: 0;
-	right: 0;
-}
-#search-toggler:checked ~ nav .search-icon:before {
-	content: '';
-	display: block;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 2px;
-	height: 18px;
-	transform-origin: bottom left;
-	transform: rotate(45deg);
-	background-color: #FFFFFF;
 }
 .btn {
 	outline: none;
@@ -293,7 +231,13 @@ nav form {
 	border: 2px solid #FFFFFF;
 	transition: .3s;
 }
-.news .col:hover {
+.news-page .col {
+	border-color: #565656;
+}
+.news-page .news-title {
+	margin-bottom: 10px;
+}
+.news a.col:hover {
 	background-color: #2e2e5d;
 }
 .courses .col {
@@ -351,7 +295,7 @@ nav form {
 	display: block;
 	width: 100%;
 }
-input[type=text].wpcf7-form-control, input[type=email].wpcf7-form-control, textarea.wpcf7-form-control {
+input[type=tel].wpcf7-form-control, input[type=text].wpcf7-form-control, input[type=email].wpcf7-form-control {
 	border: none;
 	background-color: transparent;
 	border-bottom: 1px solid #FFFFFF;
@@ -363,16 +307,16 @@ input[type=text].wpcf7-form-control, input[type=email].wpcf7-form-control, texta
 	color: #FFFFFF;
 	font-size: 1em;
 }
-input[type=text].wpcf7-form-control:focus, input[type=email].wpcf7-form-control:focus, textarea.wpcf7-form-control:focus {
+input[type=tel].wpcf7-form-control:focus, input[type=email].wpcf7-form-control:focus, textarea.wpcf7-form-control:focus {
 	border-bottom-color: darkorange;
 }
-
-textarea.wpcf7-form-control {
-	height: 50px;
+input[type="checkbox"] {
+    width: 13px !important ;
+    -webkit-appearance: checkbox !important;
 }
 
 form p {
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 
 form p:last-of-type {
@@ -404,17 +348,22 @@ footer a:hover {
 .wpcf7 .ajax-loader {
 	display: none;
 }
-#modal-toggler, #modal-toggler:not(:checked) ~ .modal {
+#modal-toggler {
 	display: none;
+}
+#modal-toggler:not(:checked) ~ .modal {
+	transform: translateY(100%);
 }
 .modal {
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100vw;
-	min-height: 100vh;
+	height: 100vh;
+	overflow: auto;
 	z-index: 999;
 	background: rgba(0, 0, 0, .75);
+	transition: .3s;
 }
 .modal-form {
 	padding: 30px;
@@ -422,9 +371,8 @@ footer a:hover {
 	max-width: 100%;
 }
 .close {
-	font-size: 2em;
-	margin: -20px -10px auto auto;
 	cursor: pointer;
+	text-decoration: underline;
 }
 .menu-icon {
 	display: none;
@@ -445,11 +393,86 @@ footer a:hover {
 	height: 30vh;
 	background-image: url('images/bg-2.jpg');
 }
-#wpadminbar {
-	position: absolute !important;
+.search {
+	display: grid;
+	grid-template-columns: 1fr 46px;
+	width: 300px;
+	max-width: 100%;
+	margin-right: auto;
+	margin-left: auto;
+	height: 40px;
 }
-html.my {
-	margin-top: 0 !important;
+.search input {
+	border: none;
+	padding: 10px 15px;
+	outline: none;	
+	transition: .3s;
+}
+.search input:focus {
+	border: 1px solid darkorange;
+}
+.show-all {
+	margin-bottom: 10px;
+	transition: .3s;
+	margin-top: -30px;
+}
+.show-all .btn {
+	padding: 5px 20px;
+}
+.news-head:not(:hover) .show-all {
+	opacity: 0;
+}
+.slider-content {
+	text-align: center;
+	background: rgba(0, 0, 0, .75);
+	min-height: 50vh;
+	padding: 30px 0;
+}
+.site-title {
+	font-size: 4em;
+	margin-bottom: 40px;
+	text-transform: uppercase;
+}
+.site-subtitle {
+	font-size: 1.15em;
+	margin-bottom: 30px;
+	max-width: 800px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.banner {
+	position: relative;
+}
+.slider, .slider .slide {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.slider {
+	z-index: -1;
+}
+.slide {
+	transition: .3s;
+}
+.slide:not(.active) {
+	opacity: 0;
+}
+.slider-dot:not(.active) {
+	opacity: .5;
+}
+.slider-dot {
+	margin: 0 5px;
+	height: 5px;
+	width: 15px;
+}
+.banner .container {
+	position: relative;
+	padding: 30px 0;
+}
+.header-btn {
+	margin-bottom: 40px;
 }
 
 @media(max-width: 768px) {
@@ -478,9 +501,6 @@ html.my {
 		grid-gap: 5px;
 		cursor: pointer;
 	}
-	#search-toggler:checked ~ .logo {
-		display: none;
-	}
 	.row-3 {
 		grid-template-columns: 1fr;
 	}
@@ -497,7 +517,7 @@ html.my {
 	.courses .col {
 		grid-template-columns: 1fr;
 	}
-	.site-title {
+	.site-title, .game-title {
 		font-size: 2.5em;
 	}
 }
@@ -512,10 +532,39 @@ html.my {
 	.container {
 		width: calc(100vw - 40px);
 	}
+	#menu-main {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
 }
 @media(min-width: 627px) {	
 	.solutions .row:nth-child(even) .bg-block {
 		grid-column: 2;
 		grid-row: 1;
+	}
+}
+
+@media(min-width: 560px) {	
+	.banner .container:before {
+		position: absolute;
+		content: '';
+		display: block;
+		top: 0;
+		left: 0;
+		width: 15%;
+		height: 20%;
+		border-top: 2px solid #FFFFFF;
+		border-left: 2px solid #FFFFFF;
+	}
+	.banner .container:after {
+		position: absolute;
+		content: '';
+		display: block;
+		bottom: 0;
+		right: 0;
+		width: 15%;
+		height: 20%;
+		border-bottom: 2px solid #FFFFFF;
+		border-right: 2px solid #FFFFFF;
 	}
 }
